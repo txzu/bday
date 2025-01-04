@@ -1,0 +1,205 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(45deg, #ffe6f2, #f0e0ff); /* Gradient background with pink and purple */
+    background-size: 400% 400%; /* Making the gradient move */
+    animation: gradientAnimation 10s ease infinite; /* Smooth animation for gradient movement */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ff69b4;
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container for everything */
+#quiz-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for quiz container */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    height: 80vh; /* Adjust the container height to allow more space for the images */
+}
+
+/* Left Column with Scattered Images */
+#left-images {
+    position: absolute;
+    left: 0;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 100%; /* Ensure the left images cover the entire height */
+}
+
+#left-images img {
+    width: 150px; /* Increased size for images */
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+/* Random positioning of left images */
+#left-images img:nth-child(1) {
+    top: 5%;
+    left: 10%;
+}
+
+#left-images img:nth-child(2) {
+    top: 30%;
+    left: 25%;
+}
+
+#left-images img:nth-child(3) {
+    top: 50%;
+    left: 5%;
+}
+
+#left-images img:nth-child(4) {
+    top: 70%;
+    left: 15%;
+}
+
+/* Right Column with Scattered Images */
+#right-images {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 100%; /* Ensure the right images cover the entire height */
+}
+
+#right-images img {
+    width: 150px; /* Increased size for images */
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+/* Random positioning of right images */
+#right-images img:nth-child(1) {
+    top: 5%;
+    right: 10%;
+}
+
+#right-images img:nth-child(2) {
+    top: 30%;
+    right: 20%;
+}
+
+#right-images img:nth-child(3) {
+    top: 50%;
+    right: 15%;
+}
+
+#right-images img:nth-child(4) {
+    top: 70%;
+    right: 10%;
+}
+
+/* Final message with GIFs */
+#final-message {
+    display: none;
+    text-align: center;
+    position: relative;
+    width: 60%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#gif-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.gif {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    animation: bounce 1s infinite alternate;
+}
+
+/* Bounce animation for GIFs */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Title Style */
+#title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Question Style */
+#question {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Answer Box Style */
+#answer-box {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 15px;
+    color: #ff69b4;
+    background-color: #fff0f5;
+}
+
+#answer-box::placeholder {
+    color: #ff69b4;
+}
+
+/* Submit Button Style */
+#submit-button {
+    background-color: #ff69b4;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit-button:hover {
+    background-color: #ff85c6;
+}

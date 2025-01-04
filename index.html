@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop Quiz</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <!-- Left Column with Images -->
+        <div id="left-images">
+            <img src="images/image1.png" alt="Image 1">
+            <img src="images/image2.png" alt="Image 2">
+            <img src="images/image3.png" alt="Image 3">
+            <img src="images/image1.png" alt="Image 1">
+        </div>
+
+        <!-- Quiz Content -->
+        <div id="quiz-content">
+            <h1 id="title">Pop Quiz</h1>
+            <p id="question"></p>
+            <input type="text" id="answer-box" placeholder="Type your answer here...">
+            <button id="submit-button">Submit</button>
+        </div>
+
+        <!-- Right Column with Images -->
+        <div id="right-images">
+            <img src="images/image4.png" alt="Image 4">
+            <img src="images/image5.png" alt="Image 5">
+            <img src="images/image6.png" alt="Image 6">
+            <img src="images/image4.png" alt="Image 4">
+        </div>
+    </div>
+
+    <div id="final-message">
+        <!-- After quiz is finished, this section shows -->
+        <p>oh yeah woo yeah HAPPY BIRTHDAY BABY and yeah i can swim even tho u think i cant for some reason when i literally can i just no no wanna :3 happy birthday my love i hope you have a good day because you deserve it! oh and u cant say im grooming u anymore bc ur 18 now lol. i want you to always know i will love you and i will always be here for you my love, there will never be a day, where I'm not by your side. We're even close to our one year anniversary, I cannot believe I've been with you for almost a year, time flies by so fast when im with you.. - Aryan :3 </p>
+        <div id="gif-container">
+            <img src="gifs/gif1.gif" alt="Gif 1" class="gif">
+            <img src="gifs/gif2.gif" alt="Gif 2" class="gif">
+            <img src="gifs/gif3.gif" alt="Gif 3" class="gif">
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code to handle the quiz questions and answers
+        const questions = [
+            { text: "When is my birthday?", answer: ["december 22nd", "22nd december"] },
+            { text: "What is my favourite color?", answer: ["black"] },
+            { text: "Can I swim?", answer: ["yes"] }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        const title = document.getElementById("title");
+        const questionElement = document.getElementById("question");
+        const answerBox = document.getElementById("answer-box");
+        const submitButton = document.getElementById("submit-button");
+
+        function displayQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                questionElement.textContent = questions[currentQuestionIndex].text;
+                answerBox.value = "";
+            } else {
+                // Final screen after all questions answered correctly
+                const quizContainer = document.getElementById("quiz-container");
+                quizContainer.style.display = "none"; // Hide the quiz content
+                document.getElementById("final-message").style.display = "block"; // Show final message
+            }
+        }
+
+        submitButton.addEventListener("click", () => {
+            const userAnswer = answerBox.value.trim().toLowerCase();
+            const correctAnswers = questions[currentQuestionIndex].answer;
+
+            if (correctAnswers.includes(userAnswer)) {
+                currentQuestionIndex++;
+                displayQuestion();
+            }
+        });
+
+        // Start the quiz
+        displayQuestion();
+    </script>
+</body>
+</html>
